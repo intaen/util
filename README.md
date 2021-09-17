@@ -1,6 +1,6 @@
 # util
 
-Compilation of util i make and can be use to simplify your code and make it easier.
+Compilation of util and can be use to simplify your code and make it easier.
 
 ## String
 
