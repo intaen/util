@@ -2,7 +2,7 @@
 
 Compilation of util i make and can be use to simplify your code and make it easier.
 
-## string
+## String
 
 Simple library to cut-off string. With this, you can get first, sub (middle), or last string as simple as that.
 To get first string, use GetStr with -1 for parameter pos; last string, use GetStr with 1 for parameter pos; sub
