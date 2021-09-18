@@ -32,7 +32,7 @@ import (
 )
 
 func GetCountryCode(phn string) string {
-	return str.GetStr(phn, 1, 3)
+	return str.GetStr(phn, 3, 1)
 }
 
 func GetStudentMiddleName(name string, firstlen, lastlen int) string {
@@ -40,7 +40,7 @@ func GetStudentMiddleName(name string, firstlen, lastlen int) string {
 }
 
 func GetLastPhoneNumber(phn string) string {
-	return str.GetStr(phn, -1, 4)
+	return str.GetStr(phn, 4, -1)
 }
 
 func main() {
