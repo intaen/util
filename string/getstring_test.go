@@ -4,7 +4,7 @@ import "testing"
 
 func TestGetStr(t *testing.T) {
 	data := "Test Getstring"
-	pos := 1
+	pos := -1
 	strlen := 9
 	expected := "Getstring"
 	res := GetStr(data, pos, strlen)
