@@ -59,7 +59,7 @@ func main() {
 
 ```
 
-# Time
+## Time
 ## Month
 
 Simple library to get name of month (full or short form) or number of month in Indonesia.
@@ -105,7 +105,7 @@ func main() {
 }
 ```
 
-# go-main
+## Email
 
 Simple library to check if email format is valid. You can obfuscate email with asterisk, so it'll be hidden.
 
@@ -140,6 +140,6 @@ func main() {
 		fmt.Println(email)
 	}
 	// Result: true, testing.gomail, gmail
-    // Result: te***********l@gmail.com
+	// Result: te***********l@gmail.com
 }
 ```
