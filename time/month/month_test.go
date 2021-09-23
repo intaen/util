@@ -2,7 +2,8 @@ package inamonth
 
 import "testing"
 
-func TestINAMonth(t *testing.T) {
+// Positive case
+func TestINAMonthP(t *testing.T) {
 	num := 10
 	expected := "Oktober"
 	res := MonthNumber(num)
@@ -11,7 +12,7 @@ func TestINAMonth(t *testing.T) {
 	}
 }
 
-func TestINAShortMonth(t *testing.T) {
+func TestINAShortMonthP(t *testing.T) {
 	num := 9
 	expected := "Sep"
 	res := MonthNumber.ShortForm(MonthNumber(num))
@@ -33,6 +34,25 @@ func TestConvertDate(t *testing.T) {
 	data := "2021-03-17"
 	expected := "17 Maret 2021"
 	res := ConvertDate(data)
+	if res != expected {
+		t.Errorf("This function doesn't work, result must be '%s' not '%s'", expected, res)
+	}
+}
+
+// Negative case
+func TestINAMonthN(t *testing.T) {
+	num := 20
+	expected := "Bulan tidak ditemukan"
+	res := MonthNumber(num)
+	if res.String() != expected {
+		t.Errorf("This function doesn't work, result must be '%s' not '%s'", expected, res)
+	}
+}
+
+func TestINAShortMonthN(t *testing.T) {
+	num := -1
+	expected := "Bulan tidak ditemukan"
+	res := MonthNumber.ShortForm(MonthNumber(num))
 	if res != expected {
 		t.Errorf("This function doesn't work, result must be '%s' not '%s'", expected, res)
 	}

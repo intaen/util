@@ -4,6 +4,7 @@ import (
 	"testing"
 )
 
+// Positive case
 func TestIsEmailValidP1(t *testing.T) {
 	data := "testing.email-positive@outlook.com"
 	expectedstr := "te**********l"
@@ -24,6 +25,7 @@ func TestIsEmailValidP2(t *testing.T) {
 	}
 }
 
+// Negative case
 func TestIsEmailValidN1(t *testing.T) {
 	data := "testing@emailnegative@gmail.com"
 	expectedstr := ""
