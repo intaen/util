@@ -4,9 +4,10 @@ import (
 	"fmt"
 	"strings"
 
+	"github.com/intaen/go-mail"
+
 	"github.com/intaen/go-str"
 
-	"github.com/intaen/go-mail"
 	inamonth "github.com/intaen/go-month"
 )
 
@@ -22,12 +23,12 @@ func main() {
 
 	data2 := "Password akan dikirimkan ke email email.user@gmail.com"
 	email := str.GetStr(data2, 20, -1) // Get last string
-	isValid, localpart, domain := mail.IsEmailValid(email)
+	isValid := mail.IsEmailValid(email)
 	if isValid {
-		obfemail := mail.ObfuscateEmail(localpart, domain)
+		obfemail := mail.ObfuscateEmail(email)
 		fmt.Println(strings.Replace(data2, email, obfemail, -1)) // Replace data
 	}
-	// Result: true, email.user, gmail
+	// Result: true
 	// Result: em*******r@gmail.com
 	// Result: Password akan dikirimkan ke email em*******r@gmail.com
 }

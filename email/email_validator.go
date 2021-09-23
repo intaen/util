@@ -2,52 +2,20 @@ package mail
 
 import (
 	"errors"
-	"log"
 	"strings"
 )
 
 type EmailProvider struct {
 	Google    string
 	Microsoft string
+	Others    string
 }
 
 var SpecialChars = []string{"`", "~", "!", "#", "$", "%", "^", "&", "*", "(", ")", "+", "=", ":", ";", "\"", "'", "\\", "?", "<", ">", "{", "}", "[", "]"}
 var Service = EmailProvider{
 	Google:    "Google",
 	Microsoft: "Microsoft",
-}
-
-// IsEmailValid is a function to check if email valid based on length and chars
-func IsEmailValid(email string) (bool, string, string) {
-	// Check if email has '@' sign more than one
-	if strings.Count(email, "@") > 1 {
-		log.Println("Email Invalid! It's contain '@' sign more than one")
-		return false, "", ""
-	}
-
-	// Split email into local-part and domain
-	conv := strings.Split(email, "@")
-	if conv[0] == "" || conv[1] == "" {
-		log.Println("Email Invalid! Local-part or domain is empty")
-		return false, "", ""
-	}
-	provdr := GetEmailProvider(conv[1]) // Get email service provider
-
-	// Check domain
-	err := CheckDomain(conv[1])
-	if err != nil {
-		log.Println("Email Invalid!", err)
-		return false, "", ""
-	}
-
-	// Check local-part
-	err = CheckLocalPart(conv[0], provdr)
-	if err != nil {
-		log.Println("Email Invalid!", err)
-		return false, "", ""
-	}
-
-	return true, conv[0], conv[1]
+	Others:    "Others",
 }
 
 // GetService.EmailProvider is a function to give provider from its domain
@@ -58,11 +26,16 @@ func GetEmailProvider(domain string) string {
 		return Service.Microsoft
 	}
 
-	return ""
+	return Service.Others
 }
 
 // CheckDomain is a function to check if domain contains special chars
 func CheckDomain(domain string) error {
+	// Check length of domain
+	if len(domain) > 255 {
+		return errors.New("local-part is more than 255 chars")
+	}
+
 	// Check if data has '.' more than one
 	if strings.Count(domain, ".") > 1 {
 		return errors.New("domain contains '.' (period) more than one")
@@ -84,13 +57,18 @@ func CheckLocalPart(localpart, provdr string) error {
 		SpecialChars = append(SpecialChars, "-_")
 
 		// Check length of local part
-		if len(localpart) < 5 {
-			return errors.New("local-part is less than 5 chars")
+		if len(localpart) < 6 || len(localpart) > 30 {
+			return errors.New("local-part is less than 6 chars or more than 30 chars")
 		}
 
 		// Check if data has '.' more than one
 		if strings.Count(localpart, ".") > 1 {
 			return errors.New("local-part contains '.' (period) more than one")
+		}
+	} else if provdr == Service.Microsoft || provdr == Service.Others {
+		// Check length of local part
+		if len(localpart) > 64 {
+			return errors.New("local-part is more than 64 chars")
 		}
 	}
 

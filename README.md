@@ -134,12 +134,12 @@ import (
 
 func main() {
 	email := "testing.gomail@gmail.com"
-	isValid, localpart, domain := IsEmailValid(email)
+	isValid := IsEmailValid(email)
 	if isValid {
-		obfemail := ObfuscateEmail(localpart, domain)
+		obfemail := ObfuscateEmail(email)
 		fmt.Println(obfemail)
 	}
-	// Result: true, testing.gomail, gmail
+	// Result: true
 	// Result: te***********l@gmail.com
 }
 ```
