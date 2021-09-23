@@ -1,4 +1,8 @@
+github.com/intaen/go-mail v0.0.0-20210923044543-d24dc26a0a71 h1:SX5VzqCBVQpXJW6dJWAVCPgC0XSN1EtOQiRBQ0EQqaw=
+github.com/intaen/go-mail v0.0.0-20210923044543-d24dc26a0a71/go.mod h1:7QRDJ4+xUVeOyQ6nRwy3dByuggqBqkdRpsKQryegTFo=
 github.com/intaen/go-month v0.0.0-20210918113937-9ff756c82b2d h1:hAh9i4/OHpjgYPc67c42UMM4I2SfTJxBGrODMDyEIXs=
 github.com/intaen/go-month v0.0.0-20210918113937-9ff756c82b2d/go.mod h1:46wMKru33YQuw+J33sEXkbLpnDJnLWRoLHkpRqqb+sk=
 github.com/intaen/go-str v0.0.0-20210917111429-393c1980a175 h1:0XkRPomRwsk6xmsheaeLhTcClIe7agUkSuqyv1JLZsE=
 github.com/intaen/go-str v0.0.0-20210917111429-393c1980a175/go.mod h1:/vZhMARiHhM1zz9+j9ABm6BuRDSnPHsehmfiaSAHqGU=
+github.com/intaen/go-str v0.0.0-20210918121437-3c1433a8a700 h1:FXQ89GE9DgKpJMxBWI8fZWo53yLOEj0eUsAU+cIq2Lc=
+github.com/intaen/go-str v0.0.0-20210918121437-3c1433a8a700/go.mod h1:/vZhMARiHhM1zz9+j9ABm6BuRDSnPHsehmfiaSAHqGU=
